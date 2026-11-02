@@ -502,3 +502,23 @@ dialog input[aria-invalid=true]{border-color:#ff9f8e}
 .hero-portrait video.hero-background-video{object-position:42% 60%}
 .hero-stage > .motion-toggle{top:auto!important;bottom:84px!important;right:30px!important}
 @media (max-width:760px){.hero-stage > .motion-toggle{bottom:auto!important;top:56px!important;right:22px!important}}
+/* v40: about photo shown whole - native 2:3, soft arch instead of ellipse */
+.about-portrait{width:min(78vw,400px)}
+.about-portrait img{aspect-ratio:2/3;height:auto;object-fit:cover;object-position:50% 20%;border-radius:999px 999px 28px 28px;clip-path:none;overflow:hidden}
+.portrait-ring{border-radius:999px 999px 34px 34px}
+.portrait-ring::after{border-radius:999px 999px 40px 40px;transform:none}
+.portrait-blob{inset:-4% -8% -6% -8%}
+/* v41: whole photo visible - soft rounded rectangle, no arch clipping */
+.about-portrait img{border-radius:36px;aspect-ratio:2/3;object-fit:cover;object-position:50% 0%}
+.portrait-ring,.portrait-ring::after{border-radius:44px}
+.portrait-blob{border-radius:48px;transform:rotate(-2deg)}
+.portrait-sprig{left:-12%;bottom:-6%;z-index:0}
+/* v42 */
+.about-portrait img{object-position:50% 12%}
+/* v43: peony blooms out from behind the photo's top-right corner, clearly visible */
+.about-portrait{overflow:visible}
+.about-bloom{left:auto;top:auto;right:-34%;top:-12%;width:68%;height:68%;translate:none;opacity:1;color:var(--gold-ink,#b0765f);z-index:2;transform:rotate(14deg);filter:drop-shadow(0 6px 14px rgba(42,11,24,.18))}
+.portrait-ring{z-index:3}
+@media (max-width:760px){.about-bloom{right:-14%;top:-9%;width:56%;height:56%}}
+/* v44: hide the half-covered sprig; the peony is the single decoration */
+.portrait-sprig{display:none}
