@@ -1,94 +1,106 @@
-/* Shared fluid layout for phones, tablets, laptops and wide displays. */
-:root{--content-max:1360px;--page-gutter:clamp(16px,3.5vw,64px);--section-space:clamp(44px,6vw,88px)}
-html{-webkit-text-size-adjust:100%;scroll-padding-top:104px}
-body{font-size:clamp(15px,.4vw + 11px,18px)}
-.wrap,.utility-inner.wrap{width:min(var(--content-max),calc(100% - 2 * var(--page-gutter)));margin-inline:auto}
-.section{padding-block:var(--section-space)}
-main,section,article,nav,.header-inner,.about-text,.service-card,.footer-main>*{min-width:0}
-h1,h2,h3,.category-title,.service-name,.footer-heading{overflow-wrap:anywhere}
-.button{max-width:100%;white-space:normal;min-height:48px}
-.social-round,.footer-reference .social-round{width:44px;height:44px;min-height:44px!important}
-.language-menu>summary{min-height:44px;min-width:44px}
-.language-list{max-height:min(70dvh,500px);overflow-y:auto;max-width:calc(100vw - 32px)}
-.language-list>a{min-height:44px}
-.hero-reference{width:100%;max-width:1920px;margin-inline:auto;height:clamp(460px,46vw,780px);min-height:0;max-height:none}
-.hero-reference-copy{padding:24px;gap:24px}
-.hero-brand-seal{flex-shrink:0}
-.hero-reference .motion-toggle{min-width:44px;min-height:44px}
-.facts-strip{gap:clamp(24px,4vw,60px);padding-block:clamp(32px,4vw,64px)}
-.facts-strip strong{font-size:clamp(19px,1.5vw,23px);letter-spacing:0;line-height:1.4;margin-bottom:12px}
-.facts-strip p{font-size:14px;line-height:1.75}
-.about-with-portrait{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,5vw,80px);padding-inline:0;align-items:center}
-.about-portrait{max-width:440px}
-.about-text h2{font-size:clamp(30px,3vw,42px)}
-.about-text>p{font-size:clamp(15px,.3vw + 12px,18px);line-height:1.8;max-width:60ch}
-.reference-services>h2,.reference-faq>h2{font-size:clamp(30px,3vw,44px)}
-.reference-services .service-overview{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.3vw,32px)}
-.reference-services .service-card>a{min-height:330px;padding:clamp(24px,2.5vw,36px)}
-.reference-services .service-card h3{font-size:clamp(24px,2vw,30px);line-height:1.25}
-.reference-services .service-card p{font-size:15px;line-height:1.75}
-.reference-faq .faq-list{gap:32px}
-.reference-faq .faq-list summary{font-size:17px;line-height:1.5}
-.reference-faq .faq-list details>p{font-size:15px;line-height:1.8}
-.detail-hero{max-width:var(--content-max)}
-.detail-hero h1{font-size:clamp(32px,4vw,56px);max-width:24ch}
-.detail-catalogue{grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:clamp(28px,5vw,80px)}
-.price-jumps{display:flex;flex-wrap:wrap;gap:10px}
-.price-jumps>a{max-width:100%;white-space:normal;min-height:44px}
-.treatment-group li button{min-height:56px;grid-template-columns:minmax(0,1fr) 70px 20px}
-.service-price{white-space:nowrap}
-.footer-reference .footer-main{gap:clamp(28px,5vw,72px);padding-block:clamp(36px,5vw,64px)}
-.footer-reference .footer-main nav>a{min-height:44px}
-.footer-reference .footer-contact-clean address{font-style:normal}
-dialog{width:min(560px,calc(100% - 32px));max-height:calc(100dvh - 32px);overscroll-behavior:contain}
-dialog select,dialog input{min-width:0;max-width:100%;font-size:16px}
-.booking-channel small,.booking-channel strong{overflow-wrap:anywhere}
-@media(min-width:1921px){:root{--content-max:1520px}.section{padding-block:96px}.about-portrait{max-width:480px}.reference-services .service-card>a{min-height:360px}}
-@media(max-width:1100px){
-  .utility-book{display:none}.header-shell{height:96px}.header-inner{min-height:96px;padding-block:16px;flex-direction:row;justify-content:space-between;gap:16px}
-  .brand{flex:1;justify-content:flex-start}.brand-name{text-align:left;font-size:23px}.brand-name small{text-align:left}
-  .desktop-nav{display:none}.menu-toggle{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;min-width:44px;min-height:44px}
-  .site-header{position:relative;z-index:30}.mobile-nav:not([hidden]){position:absolute;top:100%;left:0;right:0;z-index:40;background:var(--paper);padding:12px var(--page-gutter) 24px;max-height:calc(100dvh - 160px);overflow-y:auto;box-shadow:0 12px 20px #00000015}
-  .mobile-nav>a{min-height:48px}.mobile-nav>.button{align-self:stretch}
-  .utility-address{font-size:12px;margin-left:auto}.utility-inner.wrap{gap:10px}
-  .reference-services .service-card>a{padding:24px}.reference-services .service-card h3{font-size:25px}
+/* ==========================================================================
+   Responsive layer (mobile-first): everything below adds to the phone layout
+   defined in styles.css. Breakpoints: 600 / 760 / 900 / 1100 / 1440.
+   ========================================================================== */
+
+@media (min-width:600px){
+  .footer-main{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+  .about-section{border-radius:50% 50% 0 0 / 80px 80px 0 0}
+  .faq-list details{padding:28px 30px 30px}
 }
-@media(max-width:850px){
-  .utility-address{display:none}.utility-inner .language-menu{margin-left:auto}
-  .reference-services .service-overview{grid-template-columns:minmax(0,1fr)}
-  .reference-services .service-card>a{min-height:0;padding:28px}.service-card-top{margin-bottom:24px}.reference-services .service-card p{max-width:65ch;margin-bottom:24px}
-  .reference-services .service-card h3{font-size:28px}.service-card-bottom{padding-top:18px}
-  .reference-faq .faq-list{grid-template-columns:minmax(0,1fr);gap:28px}
-  .detail-catalogue{grid-template-columns:minmax(0,1fr);gap:28px}
+
+@media (min-width:760px){
+  /* utility bar */
+  .utility-address{display:block;margin-left:auto;padding-right:6px}
+  .language-menu{margin-left:0}
+
+  /* hero becomes an editorial spread: name left, window right */
+  .hero-reference{
+    --arch-w:clamp(250px,29vw,400px);
+    --arch-h:calc(var(--arch-w) * 1.42);
+    --arch-r:clamp(8px,4vw,72px);
+    grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+    grid-template-areas:"copy media";
+    column-gap:24px;
+    padding-block:72px 88px;
+  }
+  .hero-reference-copy h1{font-size:clamp(54px,7.4vw,128px)}
+  .hero-reference-copy{gap:36px}
+
+  .facts-strip{grid-template-columns:repeat(3,minmax(0,1fr));padding-block:72px}
+  .facts-strip>div{padding:6px clamp(16px,3vw,40px)}
+  .facts-strip>div+div{border-top:0;border-left:1px solid var(--line-soft)}
+
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:32px;padding-block:36px}
+  .footer-seal{width:124px;height:124px;font-size:15px}
+  .privacy-trigger{margin-left:auto}
+  .mobile-booking{display:none}
+
+  dialog{padding:44px 40px 36px}
+  .category-content{padding-left:42px}
+  .detail-hero{padding-block:48px 64px}
 }
-@media(max-width:700px){
-  html{scroll-padding-top:24px}.utility-inner.wrap{min-height:52px;gap:8px}.utility-inner .utility-instagram{margin-left:0}
-  .brand{gap:8px}.brand-name{font-size:clamp(18px,4.7vw,23px)}.brand-name small{font-size:9px;letter-spacing:.3px;max-width:220px;white-space:normal}
-  .brand-branch{width:26px;height:32px}.header-inner{gap:10px}
-  .hero-reference{height:clamp(440px,calc(100svh - 148px),680px);min-height:0;max-height:none}.hero-reference .hero-background-video{object-position:center 55%}
-  .hero-reference-copy{padding:20px;gap:22px}.hero-brand-seal{width:174px;height:174px}
-  .facts-strip{grid-template-columns:minmax(0,1fr);gap:24px;text-align:left}.facts-strip p{margin:0;max-width:none}.facts-strip strong{font-size:20px;margin-bottom:5px}
-  .about-with-portrait{grid-template-columns:minmax(0,1fr);gap:30px}.about-portrait{max-width:400px;justify-self:center}.about-text>p{max-width:none}
-  .about-with-portrait .about-text>.education{margin-top:26px}.education dd{font-size:15px}
-  .reference-services .service-card>a{padding:26px}.reference-services .full-prices-link .button{width:100%;min-width:0}
-  .reference-faq .faq-list details{padding:24px}.reference-faq .faq-list summary{font-size:16px}
-  .booking-banner>.wrap{flex-direction:column;gap:20px;align-items:stretch}.booking-banner p{font-size:16px;text-align:left}.booking-banner .button{min-width:0}
-  .category-title strong{font-size:22px}.category-title>span{font-size:14px}.category-content{padding-left:0}
-  .treatment-group li button{grid-template-columns:minmax(0,1fr) 60px 16px;gap:12px;font-size:15px}.service-includes{font-size:13px}
-  .detail-hero{padding-block:36px 44px}.detail-hero>.eyebrow{overflow-wrap:anywhere}.detail-hero>p:not(.eyebrow){font-size:16px}
-  .footer-reference .footer-main{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.footer-reference .footer-main>.footer-contact-clean{grid-column:1/-1}
-  .footer-reference .footer-bottom{padding-bottom:calc(104px + env(safe-area-inset-bottom))}
-  .mobile-booking{display:flex;align-items:center;justify-content:space-between;gap:12px;position:fixed;bottom:0;inset-inline:0;z-index:25;padding:10px var(--page-gutter) calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
-  .mobile-booking>a{min-height:44px;justify-content:center}.mobile-booking>.button{min-width:0;max-width:60%;min-height:48px;padding:10px 18px}
-  dialog{padding:28px 20px;max-height:calc(100dvh - 24px)}dialog h2{font-size:28px}.booking-channel{min-height:72px}
+
+@media (min-width:900px){
+  .about-grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(56px,7vw,112px)}
+  .about-portrait{width:100%;max-width:440px;margin:0;justify-self:center}
+
+  .service-overview{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,36px);max-width:none}
+  .service-card>a{padding-top:64px}
+
+  .faq-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
+
+  .detail-catalogue{grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:clamp(40px,6vw,96px)}
+  .detail-catalogue>h2{position:sticky;top:110px;align-self:start}
+
+  .banner-sprig{width:180px;height:300px}
+  .banner-sprig-left{left:4%}
+  .banner-sprig-right{right:4%}
 }
-@media(max-width:430px){
-  .footer-reference .footer-main{grid-template-columns:minmax(0,1fr)}.footer-reference .footer-main>.footer-contact-clean{grid-column:auto}
-  .utility-inner.wrap{gap:6px}.utility-inner .social-round{width:40px;height:44px;background:transparent;color:#ded6c9}
-  .hero-brand-seal{width:164px;height:164px}.hero-reference-copy .hero-brand-seal h1{font-size:22px}
-  .reference-services .service-card h3{font-size:26px}.reference-services .service-card>a{padding:24px}
+
+/* Desktop header: centred masthead that becomes a slim glass bar on scroll
+   (the .is-compact class is toggled by app.js above 1100px). */
+@media (min-width:1100px){
+  .utility-book{display:inline-flex;min-height:40px;margin-left:20px;padding:6px 22px;background:transparent;border-color:rgba(233,207,166,.6);color:var(--on-dark);font-size:13px}
+  .utility-book>span{display:none}
+  .utility-book:hover{background:var(--champagne);border-color:var(--champagne);color:var(--night)}
+  .utility-address{margin-left:auto}
+
+  .header-shell{height:164px}
+  .site-header{position:relative;background:transparent;border-bottom:1px solid var(--line-soft)}
+  .header-inner{flex-direction:column;justify-content:center;gap:16px;min-height:164px;padding-block:22px 12px}
+  .brand-name{font-size:27px;text-align:center}
+  .brand-name small{font-size:12px;letter-spacing:.12em;margin-top:8px}
+  .brand-branch{width:34px;height:40px}
+  .menu-toggle,.mobile-nav:not([hidden]){display:none}
+  .desktop-nav{display:flex;align-items:center;justify-content:center;gap:clamp(24px,2.6vw,44px)}
+  .desktop-nav a{position:relative;display:flex;align-items:center;min-height:44px;font:400 16px/1.4 var(--sans);letter-spacing:.02em;color:var(--ink);transition:color .3s}
+  .desktop-nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+  .desktop-nav a:hover,.desktop-nav a[aria-current=page]{color:var(--plum)}
+  .desktop-nav a:hover::after,.desktop-nav a[aria-current=page]::after{transform:scaleX(1);transform-origin:left}
+
+  .site-header.is-compact{position:fixed;inset:0 0 auto;background:rgba(248,239,234,.74);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid var(--line);box-shadow:0 18px 40px -30px rgba(69,20,39,.45);animation:header-in .45s var(--ease) both}
+  .is-compact .header-inner{flex-direction:row;justify-content:space-between;gap:24px;min-height:76px;padding-block:10px}
+  .is-compact .brand-name{font-size:21px;text-align:left}
+  .is-compact .brand-name small{font-size:10px;margin-top:5px}
+  .is-compact .brand-branch{width:28px;height:32px}
+  .is-compact .desktop-nav{gap:28px}
+  .is-compact .desktop-nav a{font-size:15px}
+  .is-compact .language-menu{margin-left:0;color:var(--ink)}
+  .is-compact .language-menu>summary:hover{background:rgba(227,189,177,.35)}
+
+  html{scroll-padding-top:96px}
+
+  .hero-reference{min-height:min(calc(100svh - 220px),860px);padding-block:56px 96px}
+  .hero-reference-copy{padding-left:clamp(0px,3vw,56px)}
 }
-@media(max-height:500px) and (orientation:landscape){
-  .hero-reference{height:440px;min-height:0}.hero-brand-seal{width:150px;height:150px}.hero-reference-copy .hero-brand-seal h1{font-size:21px}
-  .hero-reference-copy{gap:16px}.mobile-nav:not([hidden]){max-height:calc(100dvh - 96px)}
+
+@media (min-width:1440px){
+  .hero-reference{--arch-w:clamp(360px,27vw,440px)}
+}
+
+/* Short landscape phones: keep the window from swallowing the screen. */
+@media (max-height:500px) and (orientation:landscape){
+  .hero-reference{--arch-w:min(30vw,220px)}
+  .mobile-nav:not([hidden]){max-height:calc(100dvh - 96px)}
 }
