@@ -522,3 +522,10 @@ dialog input[aria-invalid=true]{border-color:#ff9f8e}
 @media (max-width:760px){.about-bloom{right:-14%;top:-9%;width:56%;height:56%}}
 /* v44: hide the half-covered sprig; the peony is the single decoration */
 .portrait-sprig{display:none}
+/* v45: peony lives in the empty space of the text column, right of the heading */
+.about-text{position:relative}
+.about-bloom{position:absolute;left:auto;right:-2%;top:-26px;width:min(210px,40%);height:auto;aspect-ratio:1;translate:none;transform:rotate(10deg);opacity:.95;color:var(--gold-ink,#b0765f);z-index:0;filter:none}
+.about-text > *:not(.about-bloom){position:relative;z-index:1}
+@media (max-width:760px){.about-bloom{right:0;top:-34px;width:120px}}
+/* v46 */
+.about-bloom{top:10px;right:0}
