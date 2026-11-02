@@ -529,3 +529,36 @@ dialog input[aria-invalid=true]{border-color:#ff9f8e}
 @media (max-width:760px){.about-bloom{right:0;top:-34px;width:120px}}
 /* v46 */
 .about-bloom{top:10px;right:0}
+/* v47: robust arch clipping for video on mobile GPUs; sprig off the name */
+.hero-portrait{-webkit-clip-path:inset(0 round 999px 999px 14px 14px);clip-path:inset(0 round 999px 999px 14px 14px);-webkit-mask-image:-webkit-radial-gradient(white,black);overflow:hidden;contain:paint}
+.hero-portrait video.hero-background-video{filter:none;clip-path:none;border-radius:0;transform:translateZ(0)}
+.hero-portrait::after{mix-blend-mode:normal;background:linear-gradient(180deg,rgba(150,40,70,.30),rgba(120,30,60,.14) 55%,rgba(42,11,24,0))}
+.hero-arch-outer,.hero-arch-inner{border-radius:999px 999px 14px 14px}
+@media (max-width:900px){
+ .hero-sprig{bottom:auto!important;top:4%!important;right:-12%!important;width:26%!important;height:34%!important;z-index:0!important}
+ .hero-reference-copy{z-index:6}
+}
+/* v48: mobile - decorative flowers never sit on text or pictures */
+@media (max-width:900px){
+ .hero-sprig{display:none!important}
+ .about-bloom{position:relative!important;display:block;right:auto!important;top:auto!important;left:auto!important;width:84px!important;height:84px!important;margin:0 0 6px auto;transform:rotate(8deg)}
+ .banner-sprig{display:none!important}
+ .banner-bloom{z-index:0!important;opacity:.16!important;pointer-events:none}
+ .booking-banner > *:not(.banner-bloom):not(.banner-sprig){position:relative;z-index:2}
+}
+/* v49 */
+@media (max-width:900px){
+ .banner-bloom{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;translate:none!important;transform:none!important;display:block;width:96px!important;height:96px!important;max-width:96px;margin:0 auto 10px;opacity:.9!important}
+}
+/* v50: mobile - the name sits BELOW the arch, so no frame line crosses the letters */
+@media (max-width:900px){
+ .hero-stage{margin-bottom:0}
+ .hero-reference-copy{margin-top:34px!important}
+ .hero-arch-outer{inset:-14px -14px -14px -14px}
+ .hero-reference-copy h1{text-shadow:0 2px 18px rgba(31,8,17,.55)}
+ .hero-reference-copy h1 .hero-line{line-height:1.08}
+}
+/* v51: soft bottom corners to match the frame */
+.hero-portrait{-webkit-clip-path:inset(0 round 999px 999px 26px 26px);clip-path:inset(0 round 999px 999px 26px 26px);border-radius:999px 999px 26px 26px}
+.hero-arch-outer{border-radius:999px 999px 36px 36px}
+.hero-arch-inner,.hero-arch-inner::after{border-radius:999px 999px 26px 26px}
